@@ -32,14 +32,14 @@ class PgRedis {
                     return reject(err);
                 }
                 if (res) {
-                    return resolve(res);
+                    return resolve(JSON.parse(res));
                 }
                 this.pg.query(sql, params, (err, res) => {
                     if (err) {
                         return reject(err);
                     }
 
-                    this.redis.set(key, res.rows);
+                    this.redis.set(key, JSON.stringify(res.rows));
                     resolve(res.rows);
                 });
             });
