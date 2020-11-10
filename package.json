@@ -1,5 +1,5 @@
 {
-  "name": "pg-redis",
+  "name": "pg-redis-nodejs",
   "version": "1.0.0",
   "description": "Cached postgres queries using redis",
   "main": "lib/src/index.js",

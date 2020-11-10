@@ -2,11 +2,11 @@
 
 Cache your postgres queries in NodeJs using redis
 
-    npm install pg-redis
+    npm install pg-redis-nodejs
 
 ## Usage
 
-    const PgRedis = require('pg-redis');
+    const PgRedis = require('pg-redis-nodejs');
     // or
     import PgRedis from 'pg-redis';
     
