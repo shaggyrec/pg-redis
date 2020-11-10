@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "postcards-ui-components": ["ui-components/src"]
+    },
+    "outDir": "lib",
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "lib": ["es2016", "dom"],
+    "declaration": true
+  },
+  "include": [
+    "./**/**.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
