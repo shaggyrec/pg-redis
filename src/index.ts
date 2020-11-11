@@ -12,15 +12,17 @@ interface PgRedisOptions {
     expire?: number;
 }
 
+const defaultOptions = { expire: 3600, prefix: 'pg-redis.' };
+
 class PgRedis {
     private pg;
     private redis;
     private options: { prefix?: string; expire?: number };
 
-    public constructor (pg: any, redis: any, options: PgRedisOptions) {
+    public constructor (pg: any, redis: any, options: PgRedisOptions = {}) {
         this.pg = pg;
         this.redis = redis;
-        this.options = options || { expire: 3600, prefix: 'pg-redis.' };
+        this.options = { ...defaultOptions, ...options };
     }
 
     public query (sql: string, params = []): Promise<any> {
@@ -39,7 +41,7 @@ class PgRedis {
                         return reject(err);
                     }
 
-                    this.redis.set(key, JSON.stringify(res.rows));
+                    this.redis.setex(key, this.options.expire, JSON.stringify(res.rows));
                     resolve(res.rows);
                 });
             });

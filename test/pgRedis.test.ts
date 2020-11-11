@@ -24,7 +24,7 @@ describe('PgRedis test', () => {
                 }
                 cb(null, redisConnection.storage.get(key));
             },
-            set: (key, value) => {
+            setex: (key, _, value) => {
                 redisConnection.storage.set(key, value);
             }
         };
